@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js or Routes.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';  // Import the LoginPage from the correct path
+import AdminDashboard from './pages/AdminDashboard';  // Import the AdminDashboard from the correct path
+import { Navigate } from 'react-router-dom'; // Import Navigate
 
-function App() {
+const App = () => {
+  const isAuthenticated = !!localStorage.getItem('access_token');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/admin-dashboard"
+          element={isAuthenticated ? <AdminDashboard /> : <Navigate to="/login" />}
+        />
+        <Route path="/" element={<Navigate to="/login" />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

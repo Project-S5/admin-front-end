@@ -4,7 +4,6 @@ import Navbar from '../components/Navbar';
 import { jsPDF } from 'jspdf';
 import './LessonDetails.css';
 
-// Define initial state and reducer function
 const initialState = {
   students: [],
   lesson: {},
@@ -17,7 +16,7 @@ const reducer = (state, action) => {
     case 'FETCH_INIT':
       return { ...state, isLoading: true, error: '' };
     case 'FETCH_SUCCESS':
-      return { ...state, isLoading: false, students: action.payload, error: '' }; // Updated to directly set students as the array
+      return { ...state, isLoading: false, students: action.payload, error: '' };
     case 'FETCH_FAILURE':
       return { ...state, isLoading: false, error: action.payload };
     default:
@@ -57,7 +56,7 @@ const LessonDetails = () => {
         }
 
         const data = await response.json();
-        dispatch({ type: 'FETCH_SUCCESS', payload: data }); // Directly using data as payload
+        dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (error) {
         dispatch({ type: 'FETCH_FAILURE', payload: error.message });
       }
@@ -77,11 +76,10 @@ const LessonDetails = () => {
     doc.setFontSize(18);
     doc.text('Students for Lesson ' + lessonId, 20, 20);
 
-    // Add lesson date_time to the PDF (you can replace this with the actual lesson date if available)
-    const lessonDate = new Date();  // Replace with actual lesson datetime if available
+    const lessonDate = new Date();
     const formattedDate = lessonDate.toLocaleString();
     doc.text('Lesson Date and Time: ' + formattedDate, 20, 30);
-    
+
     let yOffset = 40;
     students.forEach((student, index) => {
       doc.setFontSize(12);
@@ -99,9 +97,12 @@ const LessonDetails = () => {
   return (
     <div className="lesson-details">
       <Navbar />
-      <h1>Students for Lesson {lessonId}</h1>
-      {isLoading && <p>Loading students...</p>}
-      {error && <p className="error">{error}</p>}
+      <div className="lesson-header">
+        <h1>Students for Lesson {lessonId}</h1>
+      </div>
+
+      {isLoading && <div className="loading">Loading students...</div>}
+      {error && <div className="error">{error}</div>}
 
       <button className="btn btn-primary" onClick={handleExportPdf}>
         Export to PDF
@@ -111,19 +112,18 @@ const LessonDetails = () => {
         {!isLoading && students.length === 0 ? (
           <p>No students found for this lesson.</p>
         ) : (
-          // Ensure students is defined before rendering
-          students && students.length > 0 ? (
-            students.map((student) => (
-              <div
-                className="student-item"
-                key={student.id}
-                onClick={() => handleStudentClick(student)}
-              >
-                <p>{student.first_name} {student.last_name} - Status: {student.status}</p>
-              </div>
-            ))
-          ) : (
-            <p>No students found for this lesson.</p>
+          students && students.length > 0 && (
+            <div className="students-list">
+              {students.map((student) => (
+                <div
+                  className="student-item"
+                  key={student.id}
+                  onClick={() => handleStudentClick(student)}
+                >
+                  <p>{student.first_name} {student.last_name} - Status: {student.status}</p>
+                </div>
+              ))}
+            </div>
           )
         )}
       </div>

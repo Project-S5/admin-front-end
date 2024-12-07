@@ -13,13 +13,12 @@ const Navbar = () => {
     localStorage.removeItem('is_admin');
 
     // Redirect to the login page
-    navigate('/login');
+    navigate('/');
   };
 
   return (
     <nav className="navbar">
-      <div className="navbar-content">
-        <h2>Admin Dashboard</h2>
+      <div className="navbar-content navbar-right">
         <button className="logout-btn" onClick={handleLogout}>Logout</button>
       </div>
     </nav>

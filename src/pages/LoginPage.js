@@ -47,7 +47,6 @@ const LoginPage = () => {
       setMessage(`Login successful! Access Token: ${data.access_token}`);
       console.log('Access Token:', data.access_token);
 
-      // Redirect based on user role (admin or not)
       navigate('/admin-dashboard'); // Admins are redirected to the admin dashboard
 
     } catch (error) {

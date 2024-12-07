@@ -6,6 +6,7 @@ import AdminDashboard from './pages/AdminDashboard';  // Import the AdminDashboa
 import { Navigate } from 'react-router-dom'; // Import Navigate
 import LessonDetails from './pages/LessonDetails';
 import RegisterProfessor from './pages/RegisterProfessor';
+import SubjectsPerGroup from './pages/SubjectsPerGroup'; 
 
 const App = () => {
   const isAuthenticated = !!localStorage.getItem('access_token');
@@ -20,6 +21,7 @@ const App = () => {
         />
         <Route path="/lesson/:lessonId/students" element={isAuthenticated ? <LessonDetails />: <Navigate to="/" />} />
         <Route path="/register-professor" element={isAuthenticated ? <RegisterProfessor />: <Navigate to="/" />} />
+        <Route path="/subjects-per-group" element={isAuthenticated ? <SubjectsPerGroup />: <Navigate to="/" />} />
         {/* <Route path="/" element={<Navigate to="/" />} /> */}
       </Routes>
     </Router>

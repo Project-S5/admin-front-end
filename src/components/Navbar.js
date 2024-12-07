@@ -24,11 +24,16 @@ const Navbar = () => {
     // Redirect to the registration page (e.g., '/register-professor')
     navigate('/admin-dashboard');
   };
+  const handleSubjectsPerGroup = () => {
+    // Redirect to the registration page (e.g., '/register-professor')
+    navigate('/subjects-per-group');
+  };
 
   return (
     <nav className="navbar">
       <div className="navbar-content navbar-right">
-        <button className="register-btn" onClick={handleDashboard}>Dashboard</button>
+        <button className="register-btn" onClick={handleDashboard}>Home</button>
+        <button className="register-btn" onClick={handleSubjectsPerGroup}>Subjects Per Group</button>
         <button className="register-btn" onClick={handleRegister}>Register a Professor</button>
         <button className="logout-btn" onClick={handleLogout}>Logout</button>
       

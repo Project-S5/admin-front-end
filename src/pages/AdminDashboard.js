@@ -84,9 +84,10 @@ const AdminDashboard = () => {
         ) : (
           lessons.map((lesson) => (
             <div className="lesson" key={lesson.id}>
-              <h3>Lesson ID: {lesson.id}</h3>
+              <h3>{lesson.subject_name}</h3> {/* Swapped position */}
+              <p><strong>Lesson ID:</strong> {lesson.id}</p> {/* Moved Lesson ID here */}
               <p><strong>Group Number:</strong> {lesson.group_number}</p>
-              <p><strong>Professor ID:</strong> {lesson.professor}</p>
+              <p><strong>Professor:</strong> {lesson.professor_full_name}</p>
               <p><strong>Status:</strong> {lesson.status}</p>
               <p><strong>Date and Time:</strong> {new Date(lesson.date_time).toLocaleString()}</p>
               <button onClick={() => navigate(`/lesson/${lesson.id}/students`)}>

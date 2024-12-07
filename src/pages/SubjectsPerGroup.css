@@ -1,0 +1,79 @@
+.subjects-per-group {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .year-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .year-form label {
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+  
+  .year-form input {
+    padding: 10px;
+    font-size: 1.1em;
+    width: 200px;
+    margin-right: 10px;
+  }
+  
+  .year-form button {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+  }
+  
+  .loading-message,
+  .error-container {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+  }
+  
+  .error-container .error-message {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .retry-button {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  

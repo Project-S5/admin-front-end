@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';  // Import the LoginPage from the cor
 import AdminDashboard from './pages/AdminDashboard';  // Import the AdminDashboard from the correct path
 import { Navigate } from 'react-router-dom'; // Import Navigate
 import LessonDetails from './pages/LessonDetails';
+import RegisterProfessor from './pages/RegisterProfessor';
 
 const App = () => {
   const isAuthenticated = !!localStorage.getItem('access_token');
@@ -18,6 +19,7 @@ const App = () => {
           element={isAuthenticated ? <AdminDashboard /> : <Navigate to="/" />}
         />
         <Route path="/lesson/:lessonId/students" element={isAuthenticated ? <LessonDetails />: <Navigate to="/" />} />
+        <Route path="/register-professor" element={isAuthenticated ? <RegisterProfessor />: <Navigate to="/" />} />
         {/* <Route path="/" element={<Navigate to="/" />} /> */}
       </Routes>
     </Router>

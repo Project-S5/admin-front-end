@@ -47,12 +47,13 @@ body {
 }
 
 .lesson-card {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 280px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  position: relative;  /* This is important for absolute positioning of status boxes */
+  width: 280px;  /* Set a fixed width for consistency */
 }
 
 .lesson-card:hover {
@@ -116,4 +117,39 @@ body {
   .view-students-button {
     font-size: 1em;
   }
+}
+.status-box {
+  padding: 5px 10px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  position: absolute;  /* Position the status box relative to the parent .lesson-card */
+  top: 10px;  /* Position at the top-right corner */
+  right: 10px;  /* Position at the right edge of the lesson card */
+}
+
+.lesson-card {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.lesson-title {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+.view-students-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.view-students-button:hover {
+  background-color: #45a049;
 }

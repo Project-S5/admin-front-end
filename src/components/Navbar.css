@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif; /* Set font to match other parts of the app */
 }
 
 /* Left-aligned buttons container */
@@ -33,6 +34,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-family: inherit; /* Inherit font family from navbar */
 }
 
 /* Hover effect for buttons */

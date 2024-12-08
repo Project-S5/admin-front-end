@@ -69,6 +69,11 @@ const LessonsPage = () => {
         ) : (
           lessons.map((lesson) => (
             <div className="lesson-card" key={lesson.id}>
+              {/* Status Box */}
+              <div className="status-box" style={{ backgroundColor: lesson.status === 'completed' ? 'green' : lesson.status === 'canceled' ? 'red' : 'blue' }}>
+                <span>{lesson.status.charAt(0).toUpperCase() + lesson.status.slice(1)}</span>
+              </div>
+
               <h3 className="lesson-title">{lesson.subject_name}</h3>
               <p><strong>Lesson ID:</strong> {lesson.id}</p>
               <p><strong>Professor:</strong> {lesson.professor_full_name}</p>

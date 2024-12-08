@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar'; // Import the Navbar component
-import './SubjectsPerGroup.css'; // Import the CSS for styling
+import Navbar from '../components/Navbar';
+import './SubjectsPerGroup.css';
 
 const SubjectsPerGroup = () => {
-  const navigate = useNavigate(); // Initialize the useNavigate hook
-  const [year, setYear] = useState(''); // State to hold the year input
-  const [subjectsData, setSubjectsData] = useState([]); // Store subjects data
-  const [loading, setLoading] = useState(false); // Loading state
-  const [error, setError] = useState(null); // Error state
+  const navigate = useNavigate();
+  const [year, setYear] = useState('');
+  const [subjectsData, setSubjectsData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  // Function to fetch subjects data from API
   const fetchSubjects = async () => {
-    setLoading(true); // Start loading
-    setError(null); // Reset any previous errors
+    setLoading(true);
+    setError(null);
     try {
-      const token = localStorage.getItem('access_token'); // Retrieve the token from localStorage or cookies
-
-      console.log('Token:', token); // Log token for debugging
-
+      const token = localStorage.getItem('access_token');
       if (!token) {
         throw new Error('You are not authorized to view this data. Please log in.');
       }
@@ -26,7 +22,7 @@ const SubjectsPerGroup = () => {
       const response = await fetch(`http://localhost:8000/api/dashboard/subjects_per_group?year=${year}`, {
         method: 'GET',
         headers: {
-          'Authorization': `Bearer ${token}`, // Send the token in the Authorization header
+          'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
       });
@@ -36,40 +32,41 @@ const SubjectsPerGroup = () => {
       }
 
       const data = await response.json();
-      setSubjectsData(data); // Update state with fetched data
+      setSubjectsData(data);
     } catch (error) {
-      setError(error.message); // Update error state if there's an error
+      setError(error.message);
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false);
     }
   };
 
-  // Handle year input change
   const handleYearChange = (e) => {
-    setYear(e.target.value); // Update year state with the user's input
+    setYear(e.target.value);
   };
 
-  // Handle form submission to fetch data
   const handleYearSubmit = (e) => {
     e.preventDefault();
     if (year) {
-      fetchSubjects(); // Call fetchSubjects to get the data based on the selected year
+      fetchSubjects();
     }
   };
 
-  // Handle retry when an error occurs
   const handleRetry = () => {
-    setError(null); // Clear the error
-    setLoading(true); // Set loading state to true to trigger refetch
-    fetchSubjects(); // Retry fetching the data
+    setError(null);
+    setLoading(true);
+    fetchSubjects();
   };
 
+  // Function to navigate to the AdminDashboard page with parameters
+  const handleRowClick = (subjectId, groupNumber) => {
+    navigate(`/admin/dashboard/lessons/${subjectId}/?group_number=${groupNumber}`);
+  };
+// http://localhost:3000/admin/dashboard/lessons/1?group_number=101
   return (
     <div className="subjects-per-group">
       <Navbar />
       <h2>Subjects Per Group</h2>
 
-      {/* Input Field to Enter Year */}
       <form onSubmit={handleYearSubmit} className="year-form">
         <label htmlFor="year">Enter Year:</label>
         <input
@@ -77,7 +74,7 @@ const SubjectsPerGroup = () => {
           id="year"
           value={year}
           onChange={handleYearChange}
-          placeholder="Enter year (e.g., 1-6)"
+          placeholder="1,2...6"
         />
         <button type="submit">Submit</button>
       </form>
@@ -102,7 +99,7 @@ const SubjectsPerGroup = () => {
           <table>
             <thead>
               <tr>
-                <th>Subject</th>
+                <th>Subject Title</th>
                 <th>Professor</th>
                 <th>Type</th>
                 <th>Group Number</th>
@@ -114,8 +111,8 @@ const SubjectsPerGroup = () => {
             </thead>
             <tbody>
               {subjectsData.map((subject) => (
-                <tr key={subject.id}>
-                  <td>{subject.subject}</td>
+                <tr key={subject.id} onClick={() => handleRowClick(subject.id, subject.group_number)}>
+                  <td>{subject.subject_title}</td>
                   <td>{subject.professor}</td>
                   <td>{subject.type}</td>
                   <td>{subject.group_number}</td>

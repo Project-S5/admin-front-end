@@ -1,4 +1,3 @@
-// Navbar.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Navbar.css'; // Import CSS file for styling
@@ -7,36 +6,41 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Clear all relevant session data from localStorage
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
     localStorage.removeItem('is_admin');
-
-    // Redirect to the login page
     navigate('/');
   };
 
   const handleRegister = () => {
-    // Redirect to the registration page (e.g., '/register-professor')
     navigate('/register-professor');
   };
+
   const handleDashboard = () => {
-    // Redirect to the registration page (e.g., '/register-professor')
     navigate('/admin-dashboard');
   };
+
   const handleSubjectsPerGroup = () => {
-    // Redirect to the registration page (e.g., '/register-professor')
     navigate('/subjects-per-group');
   };
 
   return (
     <nav className="navbar">
-      <div className="navbar-content navbar-right">
-        <button className="register-btn" onClick={handleDashboard}>Home</button>
-        <button className="register-btn" onClick={handleSubjectsPerGroup}>Subjects Per Group</button>
-        <button className="register-btn" onClick={handleRegister}>Register a Professor</button>
-        <button className="logout-btn" onClick={handleLogout}>Logout</button>
-      
+      <div className="navbar__left">
+        <button className="navbar__button" onClick={handleDashboard}>
+          Home
+        </button>
+        <button className="navbar__button" onClick={handleSubjectsPerGroup}>
+          Subjects Per Group
+        </button>
+        <button className="navbar__button" onClick={handleRegister}>
+          Register a Professor
+        </button>
+      </div>
+      <div className="navbar__right">
+        <button className="navbar__button navbar__button--logout" onClick={handleLogout}>
+          Logout
+        </button>
       </div>
     </nav>
   );

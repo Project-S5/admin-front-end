@@ -1,100 +1,111 @@
 /* General page layout */
 .admin-dashboard {
   font-family: Arial, sans-serif;
-  padding: 20px;
+  padding: 30px;
   max-width: 1200px;
   margin: 0 auto;
   background-color: #f9f9f9;
 }
 
-h1 {
+.admin-dashboard h1 {
   text-align: center;
   color: #333;
+  margin-bottom: 30px;
 }
 
-form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+/* Form styles */
+.admin-dashboard-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px; /* Increased space between form elements */
   background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-form div {
-  flex: 1;
-  margin-right: 10px;
-}
-
-form div:last-child {
-  margin-right: 0;
-}
-
-label {
-  font-weight: bold;
-  color: #555;
-  display: block;
-  margin-bottom: 5px;
-}
-
-input[type="number"] {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-/* Lessons container */
-#lessons-container {
+.admin-dashboard-form-group {
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 
-.lesson {
+.admin-dashboard-form-group label {
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.admin-dashboard-form-group input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.admin-dashboard-form-group input[type="number"]:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+
+/* Lessons container */
+#admin-dashboard-lessons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin-dashboard-lesson {
   background-color: #fff;
-  padding: 15px;
+  padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.lesson h3 {
-  margin: 0 0 10px 0;
+.admin-dashboard-lesson h3 {
+  margin: 0 0 15px 0;
   color: #007bff;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.lesson p {
-  margin: 5px 0;
+.admin-dashboard-lesson p {
+  margin: 8px 0;
   color: #555;
+  font-size: 14px;
 }
 
-.lesson button {
-  margin-top: 10px;
+
+.admin-dashboard-button {
+  background: linear-gradient(135deg, #4caf50, #2ecc71);
+  color: white;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.admin-dashboard-button:hover {
+  background: linear-gradient(135deg, #2ecc71, #4caf50);
+  transform: scale(1.05);
 }
 
 /* Error messages */
-.error {
+.admin-dashboard-error {
   color: #ff4d4f;
   background-color: #ffe8e8;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
 }

@@ -1,32 +1,152 @@
-/* Navbar.css */
-.navbar {
-  background-color: #333;
+/* Enhanced Lesson Details Layout */
+.lesson-details {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.lesson-header h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.loading {
+  text-align: center;
+  font-size: 18px;
+  color: #007bff;
+}
+
+.error {
+  text-align: center;
+  font-size: 18px;
+  color: red;
+}
+
+#students-container {
+  margin-top: 20px;
+}
+
+.students-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-item {
   padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.navbar-content {
-  display: flex;
-  align-items: center;
+.student-item:hover {
+  background-color: #f1f1f1;
+  transform: scale(1.02); /* Slight zoom effect */
 }
 
-.navbar-right {
-  display: flex;
-  gap: 15px; /* Add some space between the buttons */
+/* Enhanced Student Details Section */
+.student-details {
+  margin-top: 30px;
+  background-color: #ffffff; /* Soft white background */
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 }
 
-.logout-btn, .register-btn {
+.student-details h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Add more spacing between individual details */
+.student-details p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #555; /* Slightly lighter text color for better readability */
+}
+
+/* Styling the individual labels */
+.student-details p strong {
+  color: #4caf50; /* Accent color for labels */
+  font-weight: 600; /* Bold label text */
+}
+
+/* Close button style (X icon) */
+.student-details .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.student-details .close-btn:hover {
+  color: #e74c3c;
+}
+
+/* Button style in student details section (e.g., Close or View More) */
+/* Styling the Close button */
+.student-details button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.student-details button:hover {
+  color: #f44336; /* Red color on hover */
+}
+
+
+/* Button styling for Export to PDF */
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 8px 16px;
-  cursor: pointer;
   border-radius: 5px;
-  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
 }
 
-.logout-btn:hover, .register-btn:hover {
+.btn:hover {
   background-color: #0056b3;
+}
+
+/* Primary Button Styling */
+.btn-primary {
+  background: linear-gradient(135deg, #4caf50, #2ecc71);
+  color: white;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2ecc71, #4caf50);
+  transform: scale(1.05);
 }

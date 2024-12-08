@@ -1,0 +1,119 @@
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Page Container */
+.lessons-page {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+/* Page Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-header h1 {
+  font-size: 2em;
+  color: #2d2d2d;
+  margin-bottom: 10px;
+}
+
+/* Error Message */
+.lessons-page-error {
+  color: #e74c3c;
+  font-size: 1.2em;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Lessons List */
+.lessons-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.lesson-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.lesson-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.lesson-title {
+  font-size: 1.4em;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.lesson-card p {
+  font-size: 1em;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.view-students-button {
+  background: linear-gradient(135deg, #4caf50, #2ecc71);
+  color: white;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.view-students-button:hover {
+  background: linear-gradient(135deg, #2ecc71, #4caf50);
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .lessons-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .lesson-card {
+    width: 100%;
+    max-width: 500px;
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 1.8em;
+  }
+
+  .lesson-card {
+    padding: 15px;
+    width: 100%;
+  }
+
+  .view-students-button {
+    font-size: 1em;
+  }
+}

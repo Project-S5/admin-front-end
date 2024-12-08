@@ -93,7 +93,7 @@ const LoginPage = () => {
 
           <button
             type="submit"
-            className="btn btn-primary w-100"
+            className="btn btn-primary-submit w-100"
             disabled={isLoading} // Disable the button during loading
           >
             {isLoading ? 'Logging in...' : 'Login'}

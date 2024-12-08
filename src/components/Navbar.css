@@ -1,35 +1,52 @@
+/* Navbar container */
 .navbar {
   background-color: #2c3e50; /* Dark blue-gray */
   color: #ecf0f1; /* Light gray */
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-container {
+/* Left-aligned buttons container */
+.navbar__left {
   display: flex;
-  width: 100%;
-  align-items: center;
+  gap: 1rem; /* Space between buttons */
 }
 
-
-.navbar-right {
-  margin-left: auto;  
-  margin-right: 0;
+/* Right-aligned logout button container */
+.navbar__right {
+  display: flex;
 }
 
-.navbar-logout-btn {
-  background-color: #e74c3c; /* Red */
-  color: #ecf0f1; /* Light gray */
+/* Button styles */
+.navbar__button {
+  background-color: #007bff; /* Blue */
+  color: #fff; /* White text */
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.navbar-logout-btn:hover {
-  background-color: #c0392b; /* Darker red */
+/* Hover effect for buttons */
+.navbar__button:hover {
+  background-color: #0056b3; /* Darker blue */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Active state (optional) */
+.navbar__button:active {
+  background-color: #003f7d; /* Even darker blue */
+}
+
+/* Logout button (same style but isolated alignment) */
+.navbar__button--logout {
+  margin-left: auto; /* Isolates the logout button on the right */
 }
